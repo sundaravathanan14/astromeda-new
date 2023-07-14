@@ -1,0 +1,23 @@
+.clearfix {
+    width: 100%;
+    clear: both;
+}
+
+.res-table th,
+.res-table td {
+    text-align: center;
+    font-family: 'poppinsregular';
+    font-size: 14px;
+    padding: 10px 5px;
+    min-height: 30px;
+    vertical-align: middle;
+}
+
+.res-table td .btn-group-sm>.btn,
+.btn-sm {
+    padding: 2px 12px;
+}
+
+.res-table .dropdown-menu {
+    min-width: 6rem;
+}
