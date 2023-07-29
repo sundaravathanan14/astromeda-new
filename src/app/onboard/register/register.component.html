@@ -1,0 +1,124 @@
+<div *ngIf="loading" class="overlay-page">
+    <div class="loading-box">
+        <div class="loading-img"><img src="assets/assets/images/loader.gif"></div>
+        <div class="spinner-border text-white " role="status"></div>
+    </div>
+</div>
+<div class="row h-100">
+    <div class="col-lg-5 col-md-6 col-sm-12 login-left">
+        <div class="login-logo"><img src="assets/img/astromeda-logo.png"></div>
+        <h4>Register</h4>
+        <form [formGroup]="registerForm" (submit)="registerUser()">
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ft-user"></i></span>
+                </div>
+                <input type="text" class="form-control" formControlName="userName" placeholder="Username">
+                <small class="error"><label
+                    *ngIf="!registerForm.get('userName')?.valid && registerForm.get('userName')?.touched">
+                    Please enter the user name !!!</label></small>
+            </div>
+        </div>
+  
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ft-mail"></i></span>
+                </div>
+                <input type="email" class="form-control" formControlName="email" placeholder="Email">
+                <small class="error"><label
+                    *ngIf="!registerForm.get('email')?.valid && registerForm.get('email')?.touched">
+                    Please enter the Email !!!</label></small>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ft-lock"></i></span>
+                </div>
+                <input type="password" class="form-control" placeholder="Password" formControlName="password">
+                <small class="error"><label
+                        *ngIf="!registerForm.get('password')?.valid && registerForm.get('password')?.touched">
+                        Please enter the Password !!!</label></small>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group ">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ft-lock"></i></span>
+                </div>
+                <input type="password" class="form-control" placeholder="Re-enter Password"
+                    formControlName="confirmPassword">
+                <small class="error"><label *ngIf="!registerForm.get('confirmPassword')?.valid  ">
+                        Password does not match</label></small>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group ">
+                
+                <label>
+                    <input type="radio" formControlName="type" value="doctor" />
+                    Doctor
+                </label>
+                <label>
+                    <input type="radio" formControlName="type" value="industry" />
+                    Industry
+                </label>
+                <small class="error"><label *ngIf="!registerForm.get('type')?.valid  ">
+                    Please select the type of user</label></small>
+            </div>
+        </div>
+  
+  
+        <button class="btn btn-block btn-success btn-lg" [disabled]="registerForm?.invalid" >Register</button>
+        </form>
+        <div class="text-center mt-4 rel-z-1">
+            Login to access the application? <a href="javascript:void()" routerLink="/login" class="btn btn-block btn-outline-primary">Login</a>
+        </div>
+        
+  
+    </div>
+  
+    <div class="col-lg-7 col-md-6 col-sm-12 login-right-bg">
+        <h1 class="heading">Astromeda </h1>
+        <h6 class="sub-heading">Health Monitor</h6>
+        <p>
+           This app is about to track heart beat, ECG, EMG, GSR, respiration rate etc.
+        </p>
+    </div>
+  </div>
+
+  <div *ngIf="successMessage" id="email-verifiacation-modal" class="modal fade show" style="display:block!important;">
+    <div class="modal-dialog  modal-dialog-centered modal-md">
+        <div class="modal-content modal-confirm">
+            <div class="modal-header">
+                <div class="icon-box">
+                    <i class="ft-check"></i>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body text-center">
+                <h6><strong>Thank you for registering your account.</strong></h6>
+                <p class="text-success"><strong>verification mail has been sent to your account. Kindly verify</strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="errorMessage" id="fail-modal" class="modal fade show " style="display:block!important;">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content modal-reject ">
+            <div class="modal-header">
+                <div class="icon-box">
+                    <i class="ft-alert-triangle"></i>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body text-center">
+                <h6><strong>{{errorMessageHdr}}</strong></h6>
+                <p class="text-danger"><strong>{{errorMessageStr}}</strong></p>
+            </div>
+        </div>
+    </div>
+</div>

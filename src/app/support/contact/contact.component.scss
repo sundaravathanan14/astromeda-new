@@ -1,0 +1,22 @@
+.inner-section-gap{
+    ul{
+        margin:20px;
+        
+        li{
+            list-style-type: none;
+            margin-top:20px;
+            i{
+                color:rgb(182, 12, 12);
+                font-size: 16px;
+                font-weight: bolder;
+                padding: 20px;
+            }
+            .content{
+                padding:20px;
+                font-size: 18px;
+                font-weight: bold;
+                color:rgb(30, 43, 117);
+            }
+        }
+    }
+}

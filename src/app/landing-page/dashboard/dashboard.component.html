@@ -1,0 +1,221 @@
+<div class="flex main-content">
+
+    <nav class="side-nav" id="sideNav">
+        <app-side-nav-bar></app-side-nav-bar>
+    </nav>
+
+    <div class="content" id="content-sec">
+
+        <div class="inner-topbar sidebar-left" id="nav-sticky">
+            <button class="navbar-toggler pull-left res-btn-left" type="button" id="res-btn">
+                <i class="ft-align-left"></i>
+            </button>
+        </div>
+        <div class="container-fluid">
+
+
+            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-left">
+
+                <div class="breadcrumb-header justify-content-between">
+                    <div class="row w-100">
+                        <div class="col-md-8">
+                            <h4 class="content-title mb-2">Hi, welcome back!</h4>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item active" aria-current="page"> Dashboard</li>
+                                </ol>
+                            </nav>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row row-sm" *ngIf="user" >
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12" >
+                    <div class="card overflow-hidden project-card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="project-card-box primary">
+                                    <i class="ft-users"></i>
+                                </div>
+                                <div class="project-content">
+                                    <ul>
+                                        <li> <strong>PATIENT:</strong> <span>{{user.userName}}</span> </li>
+                                        <li> <strong>DEVICE</strong> <span>{{user.deviceId}}</span> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                    <div class="card  overflow-hidden project-card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="project-card-box danger">
+                                    <i class="ft-package"></i>
+                                </div>
+                                <div class="project-content">
+                                    <ul>
+                                        <li> <strong>AGE</strong> <span>{{user.age}}</span> </li>
+                                        <li> <strong>SEX</strong> <span>{{user.sex}}</span> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                    <div class="card overflow-hidden project-card">
+                        <div class="card-body">
+                            <div class="d-flex">
+                                <div class="project-card-box success">
+                                    <i class="smt-icon la la-dashboard"></i>
+                                </div>
+                                <div class="project-content">
+                                    <ul>
+                                        <li> <strong>WEIGHT</strong> <span>{{user.weight}}</span> </li>
+                                        <li> <strong>BLOOD GROUP</strong> <span>{{user.bloodGroup}}</span> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row row-sm">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="row d-flex">
+                                <div class=" col-md-12 ml-auto mt-2">
+                                    <h4 class="card-title mb-0">LIVE TRACKING DETAILS</h4>
+                                    <div class="clearfix"></div>
+
+                                </div>
+
+
+                            </div>
+                            <hr>
+
+                            <div class="card-header text-right">
+                                <div class="row d-flex">
+                                    <div class="col-md-6 mr-auto">
+                                        <!-- <app-search-user (selectedUser)="enteredUser($event)"></app-search-user> -->
+                                        
+                                            <input type="text" class="form-control" (keyup.enter)="search($event)" placeholder="Search"
+                                                >
+                                        
+                                    </div>
+
+                                    <div class=" col-md-6 ml-auto mt-2">
+                                        
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-primary dropdown-toggle"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                Choose Chart Type
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" (click)="changeChart('ecg')">ECG</a></li>
+                                                <li><a class="dropdown-item" (click)="changeChart('emg')" >EMG</a></li>
+                                                <li><a class="dropdown-item" (click)="changeChart('gsr')" >GSR</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-sm" *ngIf="livedata">
+                                
+                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="card overflow-hidden project-card">
+                                        <div class="card-body">
+                                            <div class="d-flex">
+                                                <div class="project-card-box success">
+                                                    <i class="ft-heart"></i>
+                                                </div>
+                                                <div class="project-content">
+                                                    <ul>
+                                                        <li> <strong>SYS:</strong> <span>{{livedata.SYS}}<small>mmHg</small></span> </li>
+                                                        <li> <strong>DIA</strong> <span>{{livedata.DIA}}<small>mmHg</small></span> </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="card  overflow-hidden project-card">
+                                        <div class="card-body">
+                                            <div class="d-flex">
+                                                <div class="project-card-box danger">
+                                                    <i class="ft-activity"></i>
+                                                </div>
+                                                <div class="project-content">
+                                                    <ul>
+                                                        <li> <strong>PULSE:</strong> <span>{{livedata.heartRate}}<small>BPM</small></span> </li>
+                                                        <li> <strong>SPO2:</strong> <span>{{livedata.SPO2}}<small>%</small></span> </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                                    <div class="card overflow-hidden project-card">
+                                        <div class="card-body">
+                                            <div class="d-flex">
+                                                <div class="project-card-box success">
+                                                    <i class="ft-thermometer"></i>
+                                                </div>
+                                                <div class="project-content">
+                                                    <ul>
+                                                        <li> <strong>Temperature</strong> <span>{{livedata.bodyTemperature}}<small>*F</small></span></li>
+                                                        <li> <strong>Respiration</strong> <span>{{livedata.respirationRate}}<small>/min</small></span> </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <canvas baseChart *ngIf="ecg"
+              [datasets]="ecgChartData"
+              [labels]="ecgChartLabels"
+              [options]="lineChartOptions"
+              [legend]="lineChartLegend"
+              [type]="'line'"
+      ></canvas>
+      <canvas baseChart *ngIf="emg"
+      [datasets]="emgChartData"
+      [labels]="emgChartLabels"
+      [options]="lineChartOptions"
+      [legend]="lineChartLegend"
+      [type]="'line'"
+></canvas>
+<canvas baseChart *ngIf="gsr"
+[datasets]="gsrChartData"
+[labels]="gsrChartLabels"
+[options]="lineChartOptions"
+[legend]="lineChartLegend"
+[type]="'line'"
+></canvas>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

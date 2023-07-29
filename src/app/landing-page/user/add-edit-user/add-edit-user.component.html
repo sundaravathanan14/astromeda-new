@@ -1,0 +1,214 @@
+<div *ngIf="loading" class="overlay-page">
+    <div class="loading-box">
+        <div class="loading-img"><img src="assets/assets/images/loader.gif"></div>
+        <div class="spinner-border text-white " role="status"></div>
+    </div>
+</div>
+<div class="flex main-content">
+    <nav class="side-nav" id="sideNav">
+        <app-side-nav-bar></app-side-nav-bar>
+    </nav>
+
+    <div class="content" id="content-sec">
+        <!-- Topbar Admin -->
+        <div class="inner-topbar sidebar-left" id="nav-sticky">
+            <button class="navbar-toggler pull-left res-btn-left" type="button" id="res-btn">
+                <i class="ft-align-left"></i>
+            </button>
+            
+        </div>
+
+        <div class="container-fluid">
+
+
+            <div class="breadcrumb-header justify-content-between">
+                <div class="row w-100">
+                    <div class="col-md-12">
+                        <h4 class="content-title mb-2">Hi, welcome back!</h4>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+
+                                <li class="breadcrumb-item active" *ngIf="!idDevice" aria-current="page">Add {{type}}
+                                </li>
+                                <li class="breadcrumb-item active" *ngIf="idDevice" aria-current="page">Edit {{type}}
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="row row-sm">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-0" *ngIf="!idDevice">Add {{type}}s</h4>
+                        <h4 class="card-title mb-0" *ngIf="idDevice">Edit {{type}}s</h4>
+                        <p class="sub-text">manage {{type}}s details to track health 
+                        </p>
+                        <hr>
+                        <section class="inner-section-gap" *ngIf="regiForm">
+                            <form [formGroup]="regiForm">
+                                <div class="row-sm">
+                                    <div class="justify-content-left row m-auto my-auto">
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group icon-form">
+                                            <label class="label">Device Id</label>
+                                            <i class="ft-package"></i>
+                                            <input type="text" class="form-control transparent-tb"
+                                                placeholder="Device Id" formControlName="deviceId" [readonly]='editUser'>
+                                            <small class="form-text text-danger"
+                                                *ngIf="!regiForm?.get('deviceId')?.valid && regiForm?.get('deviceId')?.touched">
+                                                Please enter the Device Id !!!</small>
+                                        </div>
+                                        
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group icon-form">
+                                            <label class="label">Name</label>
+                                            <i class="ft-package"></i>
+                                            <input type="text" class="form-control transparent-tb"
+                                                placeholder="Name" formControlName="userName">
+                                            <small class="form-text text-danger"
+                                                *ngIf="!regiForm?.get('userName')?.valid && regiForm?.get('userName')?.touched">
+                                                Please enter the {{type}} Name !!!</small>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group icon-form">
+                                            <label class="label">Phone number</label>
+                                            <i class="ft-package"></i>
+                                            <input type="number" class="form-control transparent-tb"
+                                                placeholder="Phone Number" formControlName="phoneNumber">
+                                            <small class="form-text text-danger"
+                                                *ngIf="!regiForm?.get('phoneNumber')?.valid && regiForm?.get('phoneNumber')?.touched">
+                                                Please enter the PhoneNumber !!!</small>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group icon-form">
+                                            <label class="label">Age</label>
+                                            <i class="ft-package"></i>
+                                            <input type="number" class="form-control transparent-tb"
+                                                placeholder="Age" formControlName="age">
+                                            <small class="form-text text-danger"
+                                                *ngIf="!regiForm?.get('age')?.valid && regiForm?.get('age')?.touched">
+                                                Please enter the age !!!</small>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group icon-form">
+                                            <label class="label">Alternate Phone number</label>
+                                            <i class="ft-package"></i>
+                                            <input type="text" class="form-control transparent-tb"
+                                                placeholder="Alternate phone number" formControlName="alternatePhoneNumber">
+                                            <small class="form-text text-danger"
+                                                *ngIf="!regiForm?.get('alternatePhoneNumber')?.valid && regiForm?.get('alternatePhoneNumber')?.touched">
+                                                Please enter the Alternate Phone Number !!!</small>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group icon-form">
+                                            <label class="label">Sex</label>
+                                            <i class="ft-package"></i>
+                                            <select  formControlName="sex"
+                                                 class="form-control transparent-tb">
+                                                <option value="">--Select Any--</option>
+                                                <option value="Male">
+                                                    Male</option>
+                                                    <option value="Female">
+                                                        Female</option>
+                                            </select>
+                                            <small class="form-text text-danger"
+                                                *ngIf="!regiForm?.get('sex')?.valid && regiForm?.get('sex')?.touched">
+                                                Please enter the sex !!!</small>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group icon-form">
+                                            <label class="label">Blood Group</label>
+                                            <i class="ft-package"></i>
+                                            <input type="text" class="form-control transparent-tb"
+                                                placeholder="Blood Group" formControlName="bloodGroup">
+                                            <small class="form-text text-danger"
+                                                *ngIf="!regiForm?.get('bloodGroup')?.valid && regiForm?.get('bloodGroup')?.touched">
+                                                Please enter the Blood Group !!!</small>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group icon-form">
+                                            <label class="label">Weight</label>
+                                            <i class="ft-package"></i>
+                                            <input type="text" class="form-control transparent-tb"
+                                                placeholder="weight" formControlName="weight">
+                                            <small class="form-text text-danger"
+                                                *ngIf="!regiForm?.get('weight')?.valid && regiForm?.get('weight')?.touched">
+                                                Please enter the Weight !!!</small>
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group icon-form">
+                                            <label class="label">Enter Profile Image</label>
+                                            <div class="custom-file">
+                                                <input type="file" accept="image/*" (change)="showPreview($event)" class="custom-file-input" id="customFile">
+                                                <label class="custom-file-label" for="customFile">Choose
+                                                    file</label>
+                                            </div>
+                                           
+                                        </div>
+                                        <div class="col-lg-6 col-md-12 col-sm-12 form-group icon-form">
+                                            <div class="text-center">
+                                                <img [src]="imgSrc" alt="profile" width="350px" height="250px">
+                                            </div>
+                                           
+                                        </div>
+
+
+
+                                        <div class="mt-4 text-center col-md-4 m-auto">
+                                            <button (click)="cancel()"
+                                                class="btn  btn-primary btn-sm rounded-pill">Cancel </button>
+                                            <button class=" btn btn-primary btn-sm rounded-pill" *ngIf="!idDevice"
+                                                [disabled]="regiForm.invalid" (click)="onSubmit()">Add </button>
+                                            <button class=" btn btn-primary btn-sm rounded-pill" *ngIf="idDevice"
+                                                [disabled]="regiForm.invalid" (click)="onSubmit()">Update </button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div *ngIf="success" id="email-verifiacation-modal" class="modal fade show" style="display:block!important;">
+    <div class="modal-dialog  modal-dialog-centered modal-md">
+        <div class="modal-content modal-confirm">
+            <div class="modal-header">
+                <div class="icon-box">
+                    <i class="ft-check"></i>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body text-center">
+                <h4 *ngIf="!idDevice">{{type}} Added</h4>
+                <h4 *ngIf="idDevice">{{type}} Updated</h4>
+                <p class="text-success">Successfully </p>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="errorPopup" id="fail-modal" class="modal fade show" style="display:block!important;">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content modal-reject ">
+            <div class="modal-header">
+                <div class="icon-box">
+                    <i class="ft-alert-triangle"></i>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body text-center">
+                <h4>Sorry</h4>
+                <p class="text-danger">Some went wrong. Try again</p>
+                <p></p>
+
+            </div>
+        </div>
+    </div>
+</div>

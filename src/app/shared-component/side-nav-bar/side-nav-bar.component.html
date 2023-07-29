@@ -1,0 +1,49 @@
+<div class="fixed-sidebar">
+    <div class="main-sidebar-header">
+        <a href="javascript:void(0)">
+            <img src="assets/img/astromeda-logo.png" class="main-logo" style="width:210px">
+        </a>
+    </div>
+    <button class="navbar-toggler res-close ml-auto" type="button" id="res-close">
+        <i class="ft-x"></i>
+    </button>
+    <div class="clearfix"></div>
+    <div class="scrollbar scroller menu-scroller">
+        <div class="profile-box">
+            
+            <div class="user-info">
+                <h6>{{loggedUser?.userName}}</h6>
+                <small>{{loggedUser?.type}}</small>
+            </div>
+        </div>
+
+        <div class="sidebar-navs">
+            <ul class="nav  nav-pills-circle" style="padding-left: 50px;">
+                
+                <li class="nav-item" data-toggle="tooltip" data-placement="top" title=""
+                    data-original-title="Logout"> <a href="javascript:void(0)" class="nav-link text-center m-2"> <i
+                            class="ft-power"></i>
+                    </a> </li>
+            </ul>
+        </div>
+
+        <ul class="sidebar navbar-nav">
+
+            <li class="nav-item"> <a href="javascript:void(0)" routerLink="/dashboard" routerLinkActive="active" class="nav-link"> <i
+                        class="smt-icon ft-bar-chart"></i>
+                    <span>Dashboard</span> </a>
+            </li>
+            <li class="nav-item"> <a href="javascript:void(0)" routerLink="/user-list" routerLinkActive="active" class="nav-link"> <i
+                class="smt-icon ft-users"></i>
+            <span>{{typeOfUserToAdd}}</span> </a>
+            </li>
+          
+
+
+            <li class="nav-item"> <a href="javascript:void(0)" routerLink="/contact" routerLinkActive="active" class="nav-link"> <i
+                        class="smt-icon ft-message-circle"></i>
+                    <span>Contact</span> </a>
+            </li>
+        </ul>
+    </div>
+</div>

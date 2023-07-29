@@ -1,0 +1,68 @@
+<div *ngIf="loading" class="overlay-page">
+    <div class="loading-box">
+        <div class="loading-img"><img src="assets/assets/images/loader.gif"></div>
+        <div class="spinner-border text-white " role="status"></div>
+    </div>
+</div>
+<div class="row h-100">
+    <div class="col-lg-5 col-md-6 col-sm-12 login-left">
+        <div class="login-logo"><img src="assets/img/astromeda-logo.png"></div>
+        <h4>Sign In</h4>
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ft-user"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Email" #username="ngModel" [(ngModel)]="userName" name="userName" required>
+                
+            </div>
+        </div>
+  
+        <div class="form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ft-lock"></i></span>
+                </div>
+                <input type="password" class="form-control" placeholder="Password" #userpassword="ngModel"
+                            [(ngModel)]="userPassword" name="userPassword" required>
+    
+            </div>
+        </div>
+  
+  
+        <button class="btn btn-block btn-success btn-lg" (click)="login()" >LOGIN</button>
+        <div class="text-center mt-4 rel-z-1">
+            Register to access the application? <a href="javascript:void()" routerLink="/signup" class="btn btn-block btn-outline-primary">Register</a>
+        </div>
+        <div class="text-center mt-4 rel-z-1">
+            Forgot Your Password? <a href="javascript:void()" routerLink="/forgot-password">Click Here</a>
+        </div>
+  
+    </div>
+  
+    <div class="col-lg-7 col-md-6 col-sm-12 login-right-bg">
+        <h1 class="heading">Astromeda </h1>
+        <h6 class="sub-heading">Health Monitor</h6>
+        <p>
+           This app is about to track heart beat, ECG, EMG, GSR, respiration rate etc.
+        </p>
+    </div>
+  </div>
+  <div *ngIf="errorPopup" id="fail-modal" class="modal fade show" style="display:block!important;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-reject ">
+            <div class="modal-header">
+                <div class="icon-box">
+                    <i class="ft-alert-triangle"></i>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body text-center">
+                <h4>Sorry...</h4>
+                <p class="text-danger">{{errorMessage}} </p>
+                <p></p>
+
+            </div>
+        </div>
+    </div>
+</div>

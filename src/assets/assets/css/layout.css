@@ -299,7 +299,7 @@ div#NavMenuBar .dropdown-menu:before {
 
 /* Stick NAv Bar */
 #nav-sticky.head-menu-bar.sticky-top {
-    background: linear-gradient(45deg, #1c630a, #89b54d);
+    background: linear-gradient(45deg,45deg, #7573d4, #0e0772);
     border-bottom: 1px solid #7dac46;
 }
 

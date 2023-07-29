@@ -1,0 +1,116 @@
+<div class="flex main-content">
+    <nav class="side-nav" id="sideNav">
+        <app-side-nav-bar></app-side-nav-bar>
+    </nav>
+    <div class="content" id="content-sec">
+        <!-- Topbar Admin -->
+        <div class="inner-topbar sidebar-left" id="nav-sticky">
+            <button class="navbar-toggler pull-left res-btn-left" type="button" id="res-btn">
+                <i class="ft-align-left"></i>
+            </button>
+        </div>
+
+        <div class="container-fluid">
+
+
+            <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-left">
+
+                <div class="breadcrumb-header justify-content-between">
+                    <div class="row w-100">
+                        <div class="col-md-12">
+                            <h4 class="content-title mb-2">Hi, welcome back!</h4>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"> {{type}}s List</li>
+                                </ol>
+                            </nav>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="row row-sm">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="row d-flex">
+                                <div class=" col-md-6 ml-auto mt-2">
+                                    <h4 class="card-title mb-0">Manage {{type}}</h4>
+                                    <div class="clearfix"></div>
+                                    <p class="sub-text">VIEW, EDIT, REMOVE AND LIST {{type | uppercase}} HERE</p>
+                                </div>
+
+                                <div class=" col-md-6 ml-auto mt-2 text-right">
+                                    <button class="btn btn-primary btn-sm auto ml-2 rounded-pill"
+                                        (click)="addPatientsPage()" type="button"><i class="ft-plus"></i>
+                                        Add {{type}} </button>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div class="card-header text-right">
+                                <div class="row d-flex">
+                                    <div class="input-group col-md-6 mr-auto">
+                                        <input type="text" class="form-control" placeholder="Search"
+                                            [(ngModel)]="patientsFilter">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <table class="table res-table table-striped admin-tbl reflow-table ">
+                                <thead>
+                                    <tr>
+                                        <th>Device ID</th>
+                                        <th>Name</th>
+                                        <th>Age</th>
+                                        <th>Phone Number</th>
+                                        <th>Blood Group</th>
+                                        <th>Weight</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody *ngIf="allPatients">
+                                    <tr *ngFor="let patient of allPatients">
+
+                                        <td data-th="Category">{{patient.deviceId}}</td>
+                                        <td data-th="Description">{{patient.userName}}</td>
+                                        <td data-th="Discount %">{{patient.age}} </td>
+                                        <td data-th="Category">
+                                            {{patient.phoneNumber}}<br>{{patient.alternatePhoneNumber}}</td>
+                                        <td data-th="Description">{{patient.bloodGroup}}</td>
+                                        <td data-th="Discount %">{{patient.weight}} </td>
+
+
+                                        <td data-th="Action">
+                                            <a routerLink="/add-edit"
+                                                [queryParams]="{ key: patient.deviceId }"
+                                                class="btn btn-sm btn-outline-primary auto" data-tooltip="tooltip"
+                                                title="" data-original-title="Disable"><i class="la la-edit"></i></a>
+                                            <button (click)="delete(patient)"
+                                                class=" btn btn-sm btn-outline-danger auto" data-tooltip="tooltip"
+                                                title="" data-original-title="Delete"><i
+                                                    class="la la-trash"></i></button>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

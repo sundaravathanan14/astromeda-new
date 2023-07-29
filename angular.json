@@ -32,7 +32,17 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/assets/js/jquery-3.4.1.min.js",
+              "src/assets/assets/js/popper.js",
+              "src/assets/assets/js/bootstrap.min.js",
+              "src/assets/assets/js/owl.carousel.min.js",
+              "src/assets/assets/js/custom.js",
+              "src/assets/assets/js/jquery.jscrollpane.min.js",
+              "src/assets/assets/js/modernizr-3.7.1.min.js",
+              "src/assets/assets/js/perfect-scrollbar.min.js",
+              "src/assets/assets/js/reflow-table.js" 
+            ]
           },
           "configurations": {
             "production": {

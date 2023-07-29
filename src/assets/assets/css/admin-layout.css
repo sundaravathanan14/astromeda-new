@@ -27,7 +27,7 @@ body {
 }
 
 .login-left h4 {
-    color: #28a745;
+    color: #05214b;
     text-transform: capitalize;
     font-family: robotoregular;
     font-weight: 800;
@@ -57,13 +57,13 @@ body {
 
 .input-group-prepend .input-group-text i {
     font-size: 20px;
-    color: #4ac566;
+    color: #241ba1;
 }
 
 .btn-success {
-    background: #3dc71e;
-    border-color: #269d0b;
-    background-image: linear-gradient(to right, #074924, #147b42);
+    background: #241ba1;
+    border-color: #127a99;
+    background-image: linear-gradient(to right, #0f3d87, #2db3c4);
 }
 
 .btn {
@@ -139,7 +139,7 @@ span.input-group-text {
 }
 
 .login-left a {
-    color: #269d0b;
+    color: #020f49;
     text-decoration: none;
 }
 
@@ -271,7 +271,7 @@ span.input-group-text {
 
 .sidebar .nav-item:hover a.nav-link span,
 .sidebar .nav-item:hover a.nav-link i.smt-icon {
-    color: #269d0b;
+    color: #370b9d;
 }
 
 .sidebar .nav-item a.nav-link span,
@@ -279,13 +279,13 @@ span.input-group-text {
     color: #2d3144;
 }
 
-.sidebar .nav-item.active a.nav-link span,
-.sidebar .nav-item.active a.nav-link i,
+.sidebar .nav-item a.nav-link.active span,
+.sidebar .nav-item a.nav-link.active i,
 .sidebar .nav-item.active .dropdown-toggle::after {
     color: #FFF;
 }
 
-.sidebar .nav-item.active:hover a.nav-link i {
+.sidebar .nav-item a.nav-link.active:hover i {
     color: #FFF;
 }
 
@@ -324,11 +324,11 @@ span.input-group-text {
     border-top: 0;
 }
 
-.sidebar .nav-item.active .nav-link {
+.sidebar .nav-item .nav-link.active {
     color: #fff;
     font-weight: 500;
     border-top: 0;
-    background: linear-gradient(45deg, #094f28, #147b42);
+    background: linear-gradient(45deg, #09224f, #145a7b);
     box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.1);
     border-radius: 0 100px 100px 0;
     margin-right: 15px;
@@ -363,7 +363,7 @@ span.input-group-text {
     height: 38px;
     vertical-align: middle;
     cursor: pointer;
-    background: linear-gradient(45deg, #094f28, #147b42);
+    background: linear-gradient(45deg, #090a4f, #14667b);
     box-shadow: 0 6px 14px 2px rgba(0, 0, 0, 0.1);
     color: #FFF;
 
@@ -405,7 +405,7 @@ span.input-group-text {
 .main-content:after {
     content: "";
     height: 220px;
-    background: linear-gradient(45deg, #e48edd, #f56b10);
+    background: linear-gradient(45deg, #7573d4, #0e0772);
     position: absolute;
     z-index: -1;
     width: 100%;
@@ -464,7 +464,7 @@ span.input-group-text {
     display: flex;
     align-items: center;
     position: relative;
-    border-bottom: 1px solid #2c661d;
+    border-bottom: 1px solid #1d2466;
     padding: 0px 15px;
     width: 100%;
 }
@@ -560,9 +560,9 @@ div#nav-sticky.sticky-top {
     height: 65px;
     position: fixed;
     width: 100%;
-    border-bottom: 1px solid #2c661d;
+    border-bottom: 1px solid #1d3766;
     z-index: 100;
-    background: linear-gradient(45deg, #04361a, #11713c);
+    background: linear-gradient(45deg, #160436, #3b1171);
     left: 0;
 }
 
@@ -690,7 +690,7 @@ div#nav-sticky.sticky-top {
 }
 
 .breadcrumb-header .content-title {
-    color: #ffb500;
+    color: #f0eada;
     font-size: 20px;
     text-transform: uppercase;
 }
@@ -711,7 +711,7 @@ div#nav-sticky.sticky-top {
 }
 
 .breadcrumb-item a {
-    color: #28a745;
+    color: #2878a7;
     text-decoration: none;
 }
 
@@ -809,7 +809,7 @@ div#nav-sticky.sticky-top {
 
 .project-card .success {
     fill: #fff;
-    background: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
+    background: linear-gradient(to top, #0b48a3 0%, #3c7dba 100%);
     padding: 11px;
     border-radius: 5px;
 }
@@ -828,7 +828,7 @@ div#nav-sticky.sticky-top {
 
 .card-title {
     font-weight: 500;
-    color: #28a745;
+    color: #2846a7;
     font-size: 16px;
     text-transform: uppercase;
     font-family: 'open_sansregular';
@@ -1835,14 +1835,14 @@ button {
 }
 
 .front.login-left h4 {
-    color: #28a745;
+    color: #285fa7;
     text-transform: capitalize;
     font-family: 'open_sansregular';
 }
 
 .front.login-left .input-group-prepend .input-group-text i {
     font-size: 20px;
-    color: #28a745;
+    color: #4428a7;
 }
 
 .front.login-left small.error {
@@ -1925,7 +1925,7 @@ section.inner-title h3 {
 
 section.inner-title h3 i {
     font-size: 20px;
-    color: #02b14f;
+    color: #2802b1;
     margin-right: 8px;
 }
 
@@ -1936,7 +1936,7 @@ section.inner-title h3 i {
 
 .total-price h3 {
     text-transform: uppercase;
-    color: #00a248;
+    color: #1000a2;
 }
 
 .tbl-cart.res-table td,
@@ -1949,7 +1949,7 @@ section.inner-title h3 i {
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #00a74a;
+    color: #0035a7;
 }
 
 div#my-account .card-header {
