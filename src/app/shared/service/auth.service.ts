@@ -18,16 +18,16 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
-    /* Saving user data in localstorage when 
+    /* Saving user data in sessionStorage when 
     logged in and setting up null when logged out */
     // this.afAuth.authState.subscribe((user) => {
     //   if (user) {
     //     this.userData = user;
-    //     localStorage.setItem('user', JSON.stringify(this.userData));
-    //     JSON.parse(localStorage.getItem('user')!);
+    //     sessionStorage.setItem('user', JSON.stringify(this.userData));
+    //     JSON.parse(sessionStorage.getItem('user')!);
     //   } else {
-    //     localStorage.setItem('user', 'null');
-    //     JSON.parse(localStorage.getItem('user')!);
+    //     sessionStorage.setItem('user', 'null');
+    //     JSON.parse(sessionStorage.getItem('user')!);
     //   }
     // });
   }
@@ -37,7 +37,7 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password);
   }
   setAccessToken(token:string) {
-    localStorage.setItem('bearerToken', token);
+    sessionStorage.setItem('bearerToken', token);
 }
   // Sign up with email/password
   SignUp(user:any) {
@@ -84,14 +84,14 @@ export class AuthService {
   }
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user')!);
-    return user !== null && user.emailVerified !== false ? true : false;
+    const user = JSON.parse(sessionStorage.getItem('user')!);
+    return user !== null ? true : false;
   }
   setLoggedInData(user: any) {
-    localStorage.setItem('user', JSON.stringify(user));
+    sessionStorage.setItem('user', JSON.stringify(user));
 }
   getLoggedInData(){
-    return JSON.parse(localStorage.getItem('user') || ''); 
+    return JSON.parse(sessionStorage.getItem('user') || ''); 
   }
   getUser(email: string): Observable<any> {
     try {
@@ -119,10 +119,9 @@ export class AuthService {
   }
   // Sign out
   signOut() {
-    return this.afAuth.signOut().then(() => {
-      console.log('comes');
-      localStorage.removeItem('user');
-      this.router.navigate(['login']);
-    });
+      this.afAuth.signOut();
+      sessionStorage.removeItem('user');
+      return this.router.navigate(['login']);
+    
   }
 }

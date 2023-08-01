@@ -6,6 +6,7 @@ import { UserListComponent } from './landing-page/user/user-list/user-list.compo
 import { ForgetPasswordComponent } from './onboard/forget-password/forget-password.component';
 import { LoginComponent } from './onboard/login/login.component';
 import { RegisterComponent } from './onboard/register/register.component';
+import { AuthGuard } from './shared/guard/auth.guard';
 import { ContactComponent } from './support/contact/contact.component';
 
 const routes: Routes = [
@@ -15,10 +16,10 @@ const routes: Routes = [
   { path: 'signup', component: RegisterComponent },
   { path: 'forgot-password', component: ForgetPasswordComponent },
   //login end
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'add-edit', component: AddEditUserComponent },
-  { path: 'user-list', component: UserListComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate:[AuthGuard] },
+  { path: 'add-edit', component: AddEditUserComponent, canActivate:[AuthGuard] },
+  { path: 'user-list', component: UserListComponent, canActivate:[AuthGuard] },
+  { path: 'contact', component: ContactComponent, canActivate:[AuthGuard] },
   {
     path: '**',
     redirectTo: 'login'

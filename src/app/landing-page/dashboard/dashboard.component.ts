@@ -36,25 +36,7 @@ export class DashboardComponent {
   emg = false;
   gsr = false;
 
-  public query3 = '';
-  public staticList = [
-    "guitar",
-    "drums",
-    "bass",
-    "electric guitars",
-    "keyboards",
-    "mic",
-    "bass guitars",
-    "trumpet",
-    "horns",
-    "guitar workshops",
-    "pedals"
-  ];
-
-  public handleStaticResultSelected (result:any) {
-    console.log(result);
-    this.query3 = result;
-  }
+  
   constructor(private sharedService: AuthService,private crduService:UserService) { }
   ngOnInit(): void {
     
@@ -112,9 +94,9 @@ getLiveData(data:any){
     this.gsrChartLabels = [...this.gsrChartLabels];
     
   })
-  // this.crduService.getProceesedData().subscribe((data)=>{
-  //   console.log(data,'process data');
-  // })
+  this.crduService.getProceesedData().subscribe((data:any)=>{
+    console.log(data,'process data');
+  })
 }
 
 generateRandomData() {

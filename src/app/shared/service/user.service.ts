@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -10,7 +11,7 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class UserService {
-  constructor(private db: AngularFireDatabase,private firestore: AngularFirestore,private sharedService:AuthService) { }
+  constructor(private httpClient: HttpClient,private db: AngularFireDatabase,private firestore: AngularFirestore,private sharedService:AuthService) { }
   type=this.sharedService.getLoggedInData().type == 'doctor' ? 'Patients': 'Worker';
   typeForLiveData = this.sharedService.getLoggedInData().type == 'doctor' ? 'Patient_Live_Data': 'Worker_Live_Data';
   baseUrl = environment.baseURL;
@@ -112,10 +113,9 @@ export class UserService {
       return this.db.object(`${this.typeForLiveData}/${id}`).remove();
     }
     getProceesedData(){
-      return '';
-  //     var bearerToken = localStorage.getItem('bearerToken');
-  //   var authhdr = 'Bearer ' + bearerToken;
-  //   let reqHeader = new HttpHeaders({ 'Authorization': authhdr });
-   // return this.httpClient.get(this.baseUrl);
+      var bearerToken = sessionStorage.getItem('bearerToken');
+    var authhdr = 'Bearer ' + bearerToken;
+    // let reqHeader = new HttpHeaders({ 'Authorization': authhdr });
+   return this.httpClient.get('https://astroprocessing.onrender.com/');
     }
 }

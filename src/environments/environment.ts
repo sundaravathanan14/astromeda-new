@@ -21,7 +21,7 @@ export const environment = {
       appId: "1:549516672702:web:b944b6a07e3fedecbe28ef",
       measurementId: "G-74DYCNHRHL"
     },
-    baseURL: "",
+    baseURL: "https://astroprocessing.onrender.com/",
   };
   
   /*
