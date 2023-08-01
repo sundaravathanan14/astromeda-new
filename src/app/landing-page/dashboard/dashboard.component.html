@@ -110,10 +110,13 @@
                                     <div class="col-md-6 mr-auto">
                                         <!-- <app-search-user (selectedUser)="enteredUser($event)"></app-search-user> -->
                                         
-                                            <input type="text" class="form-control" (keyup.enter)="search($event)" placeholder="Search"
+                                            <input type="text" class="form-control" ngxTypeahead [value]="query3"
+                                            [taList]="staticList" 
+                                            (taSelected)="handleStaticResultSelected($event)" (keyup.enter)="search($event)" placeholder="Search"
                                                 >
                                         
                                     </div>
+                                    <pre><code>{{ staticList | json }}</code></pre>
 
                                     <div class=" col-md-6 ml-auto mt-2">
                                         

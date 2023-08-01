@@ -8,7 +8,7 @@
     <div class="col-lg-5 col-md-6 col-sm-12 login-left">
         <div class="login-logo"><img src="assets/img/astromeda-logo.png"></div>
         <h4>Register</h4>
-        <form [formGroup]="registerForm" (submit)="registerUser()">
+        <form [formGroup]="registerForm" (submit)="registerUser()" autocomplete="off">
         <div class="form-group">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -26,7 +26,10 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ft-mail"></i></span>
                 </div>
-                <input type="email" class="form-control" formControlName="email" placeholder="Email">
+                <input type="email" class="form-control" formControlName="email" placeholder="Email" autocomplete="off"
+                autocorrect="off"
+                autocapitalize="none"
+                spellcheck="false">
                 <small class="error"><label
                     *ngIf="!registerForm.get('email')?.valid && registerForm.get('email')?.touched">
                     Please enter the Email !!!</label></small>
@@ -37,7 +40,10 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ft-lock"></i></span>
                 </div>
-                <input type="password" class="form-control" placeholder="Password" formControlName="password">
+                <input type="password" class="form-control" placeholder="Password" formControlName="password" autocomplete="off"
+                autocorrect="off"
+                autocapitalize="none"
+                spellcheck="false">
                 <small class="error"><label
                         *ngIf="!registerForm.get('password')?.valid && registerForm.get('password')?.touched">
                         Please enter the Password !!!</label></small>

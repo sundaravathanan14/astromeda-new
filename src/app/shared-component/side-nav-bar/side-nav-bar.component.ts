@@ -9,9 +9,12 @@ import { AuthService } from 'src/app/shared/service/auth.service';
 export class SideNavBarComponent implements OnInit {
   loggedUser:any;
   typeOfUserToAdd: string='';
-  constructor(private loggedUserDetails:AuthService){}
+  constructor(public loggedUserDetails:AuthService){}
   ngOnInit(): void {
     this.loggedUser=this.loggedUserDetails.getLoggedInData()[0];
     this.typeOfUserToAdd= this.loggedUser?.type == 'doctor' ? 'Patient': 'Worker';
+  }
+  logOut(){
+    this.loggedUserDetails.signOut();
   }
 }

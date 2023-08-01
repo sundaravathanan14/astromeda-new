@@ -23,11 +23,9 @@ export class LoginComponent {
       this.loading = true;
       this.authenticationService.SignIn(this.userName, this.userPassword).then(
         (response:any) => {
-          console.log('response',response);
           this.authenticationService.setAccessToken(response['accessToken']);
           this.authenticationService.getUser(this.userName).subscribe((response)=>{
             {
-              console.log(response,'response');
               this.loading = false;
               this.user = response;
              

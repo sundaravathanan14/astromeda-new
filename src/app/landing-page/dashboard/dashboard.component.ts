@@ -35,6 +35,26 @@ export class DashboardComponent {
   ecg = false;
   emg = false;
   gsr = false;
+
+  public query3 = '';
+  public staticList = [
+    "guitar",
+    "drums",
+    "bass",
+    "electric guitars",
+    "keyboards",
+    "mic",
+    "bass guitars",
+    "trumpet",
+    "horns",
+    "guitar workshops",
+    "pedals"
+  ];
+
+  public handleStaticResultSelected (result:any) {
+    console.log(result);
+    this.query3 = result;
+  }
   constructor(private sharedService: AuthService,private crduService:UserService) { }
   ngOnInit(): void {
     
